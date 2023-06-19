@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+header > p{
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+}
+
+header > p::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    left: 0;
+    color: white;
+    overflow: hidden;
+    border-right: 0.3vw solid red;
+    border-bottom: 0.3vw solid cadetblue;
+    filter: drop-shadow(0 0 15px white);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0%{
+        width: 0;
+    }
+    70%{
+        width: 102%;
+    }
+}
+
+.questions{
+    margin: 40px 60px;
+}
+.quesno{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+.quesno > p{
+    font-size: 20px;
+}
+span{
+    font-weight: bold;
+}
+
+.ans{
+    margin-left: 70px;
+}
+
+.ques{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.output{
+    font-size: 20px;
+    color: aquamarine;
+}
+
+button{
+    font-size: 16px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: aqua;
+    color: green;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+}
+button:hover{
+    background-color: orchid;
+    color: white;
+    filter: drop-shadow(0 0 5px white);
+}
+
+.code{
+    display: none;
+}
+
+.quesfour{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+.quesfour > p{
+    font-size: 20px;
+}
+
+.quesEight{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

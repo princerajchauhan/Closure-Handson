@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <p data-text="Closure">closure</p>
+    </header>
+
+    <div class="questions">
+
+        <!-- ********************  QUESTION 1 *********************** -->
+        <div class="quesno">
+            <p><span>Q1. </span>Find the Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide1(this)">See Code</button>
+                <pre class="code" id="code1">
+
+function counter(){
+    var counter = 0;
+
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+
+    return IncreaseCounter;
+}
+
+var counter = counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>1 2 3 4</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 2 *********************** -->
+        <div class="quesno">
+            <p><span>Q2. </span>Find the Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide2(this)">See Code</button>
+                <pre class="code" id="code2">
+
+let count = 0;
+(function () {
+    if (count === 0) {
+    let count = 1;
+    console.log(count);
+    }
+    console.log(count);
+})();
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>1 0</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 3 *********************** -->
+        <div class="quesno">
+            <p><span>Q3. </span>Find the Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide3(this)">See Code</button>
+                <pre class="code" id="code3">
+
+for (var i = 0; i < 3; i++) {
+    setTimeout(function log() {
+        console.log(i);
+    }, 1000);
+    }
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>3 3 3 after 1 second</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 4 *********************** -->
+        <div class="quesno">
+            <div class="quesfour"><span>Q4. </span>
+                <p>Write a code to calculate area of a rectangle using inner function. In this case outer
+                    function should accept parameter length and inner function should accept parameter breadth.
+                </p>
+            </div>
+
+            <div class="ques ans">
+                <button onclick="seeHide4(this)">See Code</button>
+                <pre class="code" id="code4">
+
+function outer(length){
+    function inner(breadth){
+        return length * breadth
+    }
+    return inner
+}
+
+let rectangle = outer(20)
+console.log("Area of rectangle:",rectangle(10))
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>Area of rectangle: 200</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 5 *********************** -->
+        <div class="quesno">
+            <p><span>Q5. </span>Take a variable in outer function and create an inner function to increase the counter
+                every time it is called
+            </p>
+
+            <div class="ques ans">
+                <button onclick="seeHide5(this)">See Code</button>
+                <pre class="code" id="code5">
+
+function outer(){
+    let counter = 0
+    function inner(breadth){
+        return counter += 1
+    }
+    return inner
+}
+
+let counter = outer()
+console.log(counter())
+console.log(counter())
+console.log(counter())
+console.log(counter())
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>1 2 3 4</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 6 *********************** -->
+        <div class="quesno">
+            <p><span>Q6. </span>Print Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide6(this)">See Code</button>
+                <pre class="code" id="code6">
+
+var a = 12;
+(function () {
+    alert(a);
+})();
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>12</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 7 *********************** -->
+        <div class="quesno">
+            <p><span>Q7. </span>Print Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide7(this)">See Code</button>
+                <pre class="code" id="code7">
+
+var a = 10;
+var x = (function () {
+    var a = 12;
+    return function () {
+    alert(a);
+    };
+})();
+x();
+                </pre>
+            </div>
+
+            <div class="ans"><span class="output">Output: </span>12</div>
+            <hr size="3px" color="gray">
+
+        </div>
+
+        <!-- ********************  QUESTION 8 *********************** -->
+        <div class="quesno">
+            <p><span>Q8. </span>Print Output</p>
+
+            <div class="ques ans">
+                <button onclick="seeHide8(this)">See Code</button>
+                <pre class="code" id="code8">
+
+var globalVar = "xyz";
+
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        "outerArg = " + outerArg + "\n" +
+        "innerArg = " + innerArg + "\n" +
+        "outerVar = " + outerVar + "\n" +
+        "innerVar = " + innerVar + "\n" +
+        "globalVar = " + globalVar);
+    
+    })(456);
+})(123);
+                </pre>
+            </div>
+
+            <div class="ans quesEight"><span class="output">Output: </span>
+                <div class="out">
+                    <p>outerArg = 123</p>
+                    <p>innerArg = 456</p>
+                    <p>outerVar = a</p>
+                    <p>innerVar = b</p>
+                    <p>globalVar = xyz</p>
+                </div>
+            </div>
+            <!-- <hr size="3px" color="gray"> -->
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
